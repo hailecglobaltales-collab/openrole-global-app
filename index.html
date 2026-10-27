@@ -66,10 +66,55 @@ footer{max-width:1120px;margin:auto;padding:0 20px 30px;color:var(--muted);font-
 </main>
 <footer>OpenRole Global is an independent job board and is not affiliated with listed employers. Listings were checked on 27 October 2026, but may close or change. Always confirm location eligibility and terms on the employer’s application page. Never pay to apply for a job.</footer>
 <script>
-const sampleJobs = [
- {id:"clipboard-customer-experience",title:"Customer Experience Specialist",company:"Clipboard",category:"Customer Support",location:"Remote — Philippines and other APAC regions",eligibility:"regional",salary:"Employer lists $10.8K (chat) / $13.8K (voice); pay period not stated",type:"Full-time",description:"Supports workers by chat, voice, and email; resolves shift, payment, onboarding, and platform issues. The employer says weekend availability may be required because operations run 24/7. Checked 27 Oct 2026.",url:"https://jobs.ashbyhq.com/clipboard/6d7d384b-2b99-44f5-be2a-cc693c629d9e"},
- {id:"elevenlabs-customer-support",title:"Customer Support Specialist",company:"ElevenLabs",category:"Customer Support",location:"Remote — Philippines, Canada, Poland, Sofia, and Spanish LATAM",eligibility:"regional",salary:"Not disclosed on listing",type:"Full-time contract",description:"Technical customer support for an AI product, including troubleshooting API or browser issues and helping maintain support documentation. Listing asks for 2–3 years of technical customer support experience. Checked 27 Oct 2026.",url:"https://jobs.ashbyhq.com/elevenlabs/e22e14d8-0766-445f-9570-6037c7300c73"}
-];
+
+let sampleJobs = [];
+
+async function loadJobs() {
+  try {
+    const response = await fetch("./jobs.json", {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("Could not load jobs.json");
+    }
+
+    const data = await response.json();
+
+    sampleJobs = data.map(job => ({
+      id: job.job_id,
+      title: job.job_title || "Untitled job",
+      company: job.company || "Employer not listed",
+      category: job.category || "Remote Work",
+      location: job.eligible_countries || "Eligibility not confirmed",
+      eligibility: /worldwide|anywhere|global/i.test(
+        job.eligible_countries || ""
+      ) ? "worldwide" : "regional",
+      salary: job.salary || "Not disclosed",
+      type: job.job_type || "Not specified",
+      description:
+        "Status: " + (job.status || "Pending Review") +
+        ". Confirm the employer, location eligibility, and application link before applying.",
+      url: job.application_url || "#",
+      status: job.status || "Pending Review"
+    })).filter(job => job.id && job.url && job.url !== "#");
+
+    
+
+    renderJobs();
+    renderTracker();
+    renderMetrics();
+
+
+  } catch (error) {
+    console.error(error);
+    document.getElementById("jobs").innerHTML =
+      '<div class="empty">Jobs could not be loaded. Please try again later.</div>';
+    document.getElementById("resultCount").textContent =
+      "Jobs unavailable";
+  }
+}
+
 const $ = id => document.getElementById(id);
 const load = () => {try{return JSON.parse(localStorage.getItem("openrole_tracker_v1")||"[]")}catch(e){return []}};
 let tracker = load();
@@ -99,7 +144,9 @@ function renderMetrics(){$("savedMetric").textContent=tracker.length;$("trackedM
 $("searchBtn").addEventListener("click",renderJobs);$("search").addEventListener("input",renderJobs);$("eligibility").addEventListener("change",renderJobs);
 $("clearTracker").addEventListener("click",()=>{if(confirm("Remove all saved jobs from this browser?")){tracker=[];persist()}});
 $("tipsForm").addEventListener("submit",e=>{e.preventDefault();$("formMessage").textContent="Thanks for testing! This demo does not collect or send your email. Connect a secure email service before launching.";});
-renderJobs();renderTracker();renderMetrics();
+loadJobs();
+renderTracker();
+renderMetrics();
 </script>
 <script>
 if ("serviceWorker" in navigator) {
