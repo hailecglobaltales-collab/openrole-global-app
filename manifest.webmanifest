@@ -1,0 +1,17 @@
+{
+  "name": "OpenRole Global \u2014 Remote Job Finder",
+  "short_name": "OpenRole",
+  "description": "Find remote work opportunities and track applications.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f8fc",
+  "theme_color": "#10233f",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

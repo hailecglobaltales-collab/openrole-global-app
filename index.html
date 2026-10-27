@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenRole Global — Remote Job Finder</title>
+<style>
+:root{--navy:#10233f;--blue:#2457d6;--mint:#dff8ec;--ink:#172338;--muted:#66758b;--line:#e1e7ef;--bg:#f6f8fc;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+header{background:var(--navy);color:white;padding:18px max(20px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-size:20px;font-weight:800;letter-spacing:-.4px}.brand span{color:#80e0b6}.tag{font-size:12px;color:#d8e3f5}
+main{max-width:1120px;margin:auto;padding:32px 20px 60px}.hero{background:linear-gradient(120deg,#e5f7ef,#edf3ff);border:1px solid #dcebe7;border-radius:24px;padding:34px;margin-bottom:24px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;color:#247654;text-transform:uppercase}
+h1{font-size:clamp(30px,5vw,48px);line-height:1.08;letter-spacing:-1.8px;margin:10px 0 12px;max-width:680px;color:#10233f}
+.hero p{color:#53647b;max-width:650px;margin:0 0 22px}.searchrow{display:grid;grid-template-columns:2fr 1fr auto;gap:10px}
+input,select,button{font:inherit}input,select{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px 13px;background:white;color:var(--ink);min-width:0}
+button{border:0;border-radius:11px;padding:12px 16px;font-weight:750;cursor:pointer;background:var(--blue);color:white}button:hover{filter:brightness(.96)}button.secondary{background:white;color:var(--navy);border:1px solid var(--line)}button.small{padding:8px 10px;font-size:13px}.applylink{display:inline-block;border-radius:11px;padding:8px 10px;font-size:13px;font-weight:750;text-decoration:none;background:#10233f;color:#fff}
+.notice{font-size:12px;color:#6b5a31;background:#fff7df;border:1px solid #f0e1a7;padding:10px 12px;border-radius:10px;margin-top:15px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}.metric strong{display:block;font-size:23px;color:var(--navy)}.metric span{font-size:12px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:20px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:18px}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}h2{font-size:19px;letter-spacing:-.4px;margin:0}.count{color:var(--muted);font-size:12px}
+.job{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px}.jobtop{display:flex;justify-content:space-between;gap:12px}.job h3{font-size:16px;margin:0 0 4px}.company{font-size:13px;color:var(--muted)}.pill{display:inline-block;border-radius:999px;background:#edf3ff;color:#2a4d9c;font-size:11px;font-weight:750;padding:5px 9px;margin:10px 5px 0 0}.pill.green{background:#e2f8ed;color:#1c744e}.pill.gold{background:#fff2d3;color:#795d16}.details{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:12px 0}.jobactions{display:flex;gap:8px;flex-wrap:wrap}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
+.sideform{display:grid;gap:10px}.sideform label{font-size:12px;font-weight:750;color:#4e5c70}.sideform input,.sideform select{margin-top:5px}.trackeritem{border-top:1px solid var(--line);padding:12px 0}.trackeritem:first-child{border-top:0}.trackeritem strong{display:block;font-size:13px}.trackeritem small{color:var(--muted)}.trackerrow{display:flex;justify-content:space-between;gap:8px;align-items:center}.trackerrow select{max-width:140px;padding:7px;font-size:12px}
+footer{max-width:1120px;margin:auto;padding:0 20px 30px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.searchrow{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:12px}.hero{padding:24px}.jobtop{align-items:flex-start}}
+</style>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#10233f">
+</head>
+<body>
+<header><div class="brand">OpenRole <span>Global</span></div><div class="tag">REMOTE WORK, MADE CLEARER</div></header>
+<main>
+<section class="hero">
+ <div class="eyebrow">Your next opportunity starts here</div>
+ <h1>Find remote work that fits your world.</h1>
+ <p>Search opportunities, review location requirements, and keep your applications organized in one simple place.</p>
+ <div class="searchrow">
+  <input id="search" placeholder="Job title, company, or keyword" aria-label="Search jobs">
+  <select id="eligibility" aria-label="Location eligibility"><option value="all">All eligibility</option><option value="worldwide">Worldwide</option><option value="regional">Selected countries</option></select>
+  <button id="searchBtn">Search jobs</button>
+ </div>
+ <div class="notice"><strong>Job-check notice:</strong> These listings were checked on 27 October 2026 against the job pages linked below. Hiring status can change, so confirm the details on the employer’s application page before applying. OpenRole Global is an independent job board.</div>
+</section>
+<section class="metrics">
+ <div class="metric"><strong id="jobMetric">2</strong><span>Listings checked</span></div>
+ <div class="metric"><strong id="savedMetric">0</strong><span>Jobs saved on this device</span></div>
+ <div class="metric"><strong id="trackedMetric">0</strong><span>Applications tracked</span></div>
+</section>
+<div class="layout">
+ <section class="panel">
+  <div class="panelhead"><h2>Explore opportunities</h2><span class="count" id="resultCount">4 results</span></div>
+  <div id="jobs"></div>
+ </section>
+ <aside class="panel">
+  <div class="panelhead"><h2>My job tracker</h2><button class="secondary small" id="clearTracker">Clear</button></div>
+  <p style="font-size:12px;color:var(--muted);margin-top:-5px">Saved jobs and status changes stay in this browser on this device.</p>
+  <div id="tracker"><div class="empty">Save a job to start tracking your applications.</div></div>
+  <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+  <h2 style="margin-bottom:12px">Get job-search tips</h2>
+  <form id="tipsForm" class="sideform">
+   <label>Your email (demo only)<input id="email" type="email" placeholder="you@example.com" required></label>
+   <button type="submit">Join the interest list</button>
+   <p id="formMessage" style="font-size:12px;color:var(--muted);margin:0">Demo form only: it does not send or store your email.</p>
+  </form>
+ </aside>
+</div>
+</main>
+<footer>OpenRole Global is an independent job board and is not affiliated with listed employers. Listings were checked on 27 October 2026, but may close or change. Always confirm location eligibility and terms on the employer’s application page. Never pay to apply for a job.</footer>
+<script>
+const sampleJobs = [
+ {id:"clipboard-customer-experience",title:"Customer Experience Specialist",company:"Clipboard",category:"Customer Support",location:"Remote — Philippines and other APAC regions",eligibility:"regional",salary:"Employer lists $10.8K (chat) / $13.8K (voice); pay period not stated",type:"Full-time",description:"Supports workers by chat, voice, and email; resolves shift, payment, onboarding, and platform issues. The employer says weekend availability may be required because operations run 24/7. Checked 27 Oct 2026.",url:"https://jobs.ashbyhq.com/clipboard/6d7d384b-2b99-44f5-be2a-cc693c629d9e"},
+ {id:"elevenlabs-customer-support",title:"Customer Support Specialist",company:"ElevenLabs",category:"Customer Support",location:"Remote — Philippines, Canada, Poland, Sofia, and Spanish LATAM",eligibility:"regional",salary:"Not disclosed on listing",type:"Full-time contract",description:"Technical customer support for an AI product, including troubleshooting API or browser issues and helping maintain support documentation. Listing asks for 2–3 years of technical customer support experience. Checked 27 Oct 2026.",url:"https://jobs.ashbyhq.com/elevenlabs/e22e14d8-0766-445f-9570-6037c7300c73"}
+];
+const $ = id => document.getElementById(id);
+const load = () => {try{return JSON.parse(localStorage.getItem("openrole_tracker_v1")||"[]")}catch(e){return []}};
+let tracker = load();
+function persist(){localStorage.setItem("openrole_tracker_v1",JSON.stringify(tracker));renderJobs();renderTracker();renderMetrics()}
+function filteredJobs(){
+ const q=$("search").value.trim().toLowerCase(), elig=$("eligibility").value;
+ return sampleJobs.filter(j=>(elig==="all"||j.eligibility===elig)&&(!q||[j.title,j.company,j.category,j.location].join(" ").toLowerCase().includes(q)));
+}
+function renderJobs(){
+ const list=filteredJobs();$("resultCount").textContent=`${list.length} result${list.length===1?"":"s"}`;$("jobMetric").textContent=sampleJobs.length;
+ $("jobs").innerHTML=list.length?list.map(j=>{
+ const saved=tracker.some(t=>t.id===j.id);
+ return `<article class="job"><div class="jobtop"><div><h3>${j.title}</h3><div class="company">${j.company}</div></div><span class="pill green">Employer listing checked</span></div>
+ <div><span class="pill">${j.category}</span><span class="pill">${j.type}</span><span class="pill">Country-restricted remote</span></div>
+ <div class="details"><span>⌖ ${j.location}</span><span>Salary: ${j.salary}</span></div><p style="font-size:12px;color:var(--muted)">${j.description}</p>
+ <div class="jobactions"><button class="small" onclick="saveJob('${j.id}')">${saved?"Saved ✓":"Save job"}</button><button class="secondary small" onclick="viewDetails('${j.id}')">Details</button><a class="applylink" href="${j.url}" target="_blank" rel="noopener noreferrer">Apply on employer page ↗</a></div></article>`;
+ }).join(""):'<div class="empty">No matching jobs. Try another keyword or filter.</div>';
+}
+function saveJob(id){const j=sampleJobs.find(x=>x.id===id);if(!j)return;if(tracker.some(t=>t.id===id)){tracker=tracker.filter(t=>t.id!==id)}else{tracker.push({...j,status:"Interested"})}persist()}
+function viewDetails(id){const j=sampleJobs.find(x=>x.id===id);if(j)alert(`${j.title}\n${j.company}\n\n${j.description}\n\nEmployer application page: ${j.url}\n\nChecked: 27 October 2026. Recheck availability and location eligibility before applying.`)}
+function renderTracker(){
+ $("tracker").innerHTML=tracker.length?tracker.map(t=>`<div class="trackeritem"><div class="trackerrow"><strong>${t.title}</strong><button class="secondary small" onclick="removeJob('${t.id}')">Remove</button></div><small>${t.company}</small><div style="margin-top:8px"><select aria-label="Application status for ${t.title}" onchange="changeStatus('${t.id}',this.value)">${["Interested","Applied","Interview","Rejected","Offer"].map(s=>`<option ${t.status===s?"selected":""}>${s}</option>`).join("")}</select></div></div>`).join(""):'<div class="empty">Save a job to start tracking your applications.</div>';
+}
+function changeStatus(id,status){const item=tracker.find(t=>t.id===id);if(item){item.status=status;persist()}}
+function removeJob(id){tracker=tracker.filter(t=>t.id!==id);persist()}
+function renderMetrics(){$("savedMetric").textContent=tracker.length;$("trackedMetric").textContent=tracker.filter(t=>t.status!=="Interested").length}
+$("searchBtn").addEventListener("click",renderJobs);$("search").addEventListener("input",renderJobs);$("eligibility").addEventListener("change",renderJobs);
+$("clearTracker").addEventListener("click",()=>{if(confirm("Remove all saved jobs from this browser?")){tracker=[];persist()}});
+$("tipsForm").addEventListener("submit",e=>{e.preventDefault();$("formMessage").textContent="Thanks for testing! This demo does not collect or send your email. Connect a secure email service before launching.";});
+renderJobs();renderTracker();renderMetrics();
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(console.error));
+}
+</script>
+</body>
+</html>
