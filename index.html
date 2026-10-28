@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,74 +7,156 @@
 <title>OpenRole Global — Remote Job Finder</title>
 <style>
 :root{--navy:#10233f;--blue:#2457d6;--mint:#dff8ec;--ink:#172338;--muted:#66758b;--line:#e1e7ef;--bg:#f6f8fc;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 header{background:var(--navy);color:white;padding:18px max(20px,calc((100% - 1120px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.brand{font-size:20px;font-weight:800;letter-spacing:-.4px}.brand span{color:#80e0b6}.tag{font-size:12px;color:#d8e3f5}
-main{max-width:1120px;margin:auto;padding:32px 20px 60px}.hero{background:linear-gradient(120deg,#e5f7ef,#edf3ff);border:1px solid #dcebe7;border-radius:24px;padding:34px;margin-bottom:24px}
+.brand{font-size:20px;font-weight:800;letter-spacing:-.4px}
+.brand span{color:#80e0b6}
+.tag{font-size:12px;color:#d8e3f5}
+main{max-width:1120px;margin:auto;padding:32px 20px 60px}
+.hero{background:linear-gradient(120deg,#e5f7ef,#edf3ff);border:1px solid #dcebe7;border-radius:24px;padding:34px;margin-bottom:24px}
 .eyebrow{font-size:12px;font-weight:800;letter-spacing:1.5px;color:#247654;text-transform:uppercase}
 h1{font-size:clamp(30px,5vw,48px);line-height:1.08;letter-spacing:-1.8px;margin:10px 0 12px;max-width:680px;color:#10233f}
-.hero p{color:#53647b;max-width:650px;margin:0 0 22px}.searchrow{display:grid;grid-template-columns:2fr 1fr auto;gap:10px}
-input,select,button{font:inherit}input,select{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px 13px;background:white;color:var(--ink);min-width:0}
-button{border:0;border-radius:11px;padding:12px 16px;font-weight:750;cursor:pointer;background:var(--blue);color:white}button:hover{filter:brightness(.96)}button.secondary{background:white;color:var(--navy);border:1px solid var(--line)}button.small{padding:8px 10px;font-size:13px}.applylink{display:inline-block;border-radius:11px;padding:8px 10px;font-size:13px;font-weight:750;text-decoration:none;background:#10233f;color:#fff}
+.hero p{color:#53647b;max-width:650px;margin:0 0 22px}
+.searchrow{display:grid;grid-template-columns:2fr 1fr auto;gap:10px}
+input,select,button{font:inherit}
+input,select{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px 13px;background:white;color:var(--ink);min-width:0}
+button{border:0;border-radius:11px;padding:12px 16px;font-weight:750;cursor:pointer;background:var(--blue);color:white}
+button:hover{filter:brightness(.96)}
+button.secondary{background:white;color:var(--navy);border:1px solid var(--line)}
+button.small{padding:8px 10px;font-size:13px}
+.applylink{display:inline-block;border-radius:11px;padding:8px 10px;font-size:13px;font-weight:750;text-decoration:none;background:#10233f;color:#fff}
 .notice{font-size:12px;color:#6b5a31;background:#fff7df;border:1px solid #f0e1a7;padding:10px 12px;border-radius:10px;margin-top:15px}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}.metric strong{display:block;font-size:23px;color:var(--navy)}.metric span{font-size:12px;color:var(--muted)}
-.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:20px;align-items:start}.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:18px}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}h2{font-size:19px;letter-spacing:-.4px;margin:0}.count{color:var(--muted);font-size:12px}
-.job{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px}.jobtop{display:flex;justify-content:space-between;gap:12px}.job h3{font-size:16px;margin:0 0 4px}.company{font-size:13px;color:var(--muted)}.pill{display:inline-block;border-radius:999px;background:#edf3ff;color:#2a4d9c;font-size:11px;font-weight:750;padding:5px 9px;margin:10px 5px 0 0}.pill.green{background:#e2f8ed;color:#1c744e}.pill.gold{background:#fff2d3;color:#795d16}.details{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:12px 0}.jobactions{display:flex;gap:8px;flex-wrap:wrap}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
-.sideform{display:grid;gap:10px}.sideform label{font-size:12px;font-weight:750;color:#4e5c70}.sideform input,.sideform select{margin-top:5px}.trackeritem{border-top:1px solid var(--line);padding:12px 0}.trackeritem:first-child{border-top:0}.trackeritem strong{display:block;font-size:13px}.trackeritem small{color:var(--muted)}.trackerrow{display:flex;justify-content:space-between;gap:8px;align-items:center}.trackerrow select{max-width:140px;padding:7px;font-size:12px}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:16px}
+.metric strong{display:block;font-size:23px;color:var(--navy)}
+.metric span{font-size:12px;color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:20px;align-items:start}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:18px}
+.panelhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
+h2{font-size:19px;letter-spacing:-.4px;margin:0}
+.count{color:var(--muted);font-size:12px}
+.job{border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px}
+.jobtop{display:flex;justify-content:space-between;gap:12px}
+.job h3{font-size:16px;margin:0 0 4px}
+.company{font-size:13px;color:var(--muted)}
+.pill{display:inline-block;border-radius:999px;background:#edf3ff;color:#2a4d9c;font-size:11px;font-weight:750;padding:5px 9px;margin:10px 5px 0 0}
+.pill.green{background:#e2f8ed;color:#1c744e}
+.pill.gold{background:#fff2d3;color:#795d16}
+.details{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);margin:12px 0}
+.jobactions{display:flex;gap:8px;flex-wrap:wrap}
+.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
+.sideform{display:grid;gap:10px}
+.sideform label{font-size:12px;font-weight:750;color:#4e5c70}
+.sideform input,.sideform select{margin-top:5px}
+.trackeritem{border-top:1px solid var(--line);padding:12px 0}
+.trackeritem:first-child{border-top:0}
+.trackeritem strong{display:block;font-size:13px}
+.trackeritem small{color:var(--muted)}
+.trackerrow{display:flex;justify-content:space-between;gap:8px;align-items:center}
+.trackerrow select{max-width:140px;padding:7px;font-size:12px}
 footer{max-width:1120px;margin:auto;padding:0 20px 30px;color:var(--muted);font-size:12px}
-@media(max-width:760px){.searchrow{grid-template-columns:1fr}.layout{grid-template-columns:1fr}.metrics{gap:8px}.metric{padding:12px}.hero{padding:24px}.jobtop{align-items:flex-start}}
+@media(max-width:760px){
+.searchrow{grid-template-columns:1fr}
+.layout{grid-template-columns:1fr}
+.metrics{gap:8px}
+.metric{padding:12px}
+.hero{padding:24px}
+.jobtop{align-items:flex-start}
+}
 </style>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <meta name="theme-color" content="#10233f">
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="theme-color" content="#10233f">
 </head>
 <body>
-<header><div class="brand">OpenRole <span>Global</span></div><div class="tag">REMOTE WORK, MADE CLEARER</div></header>
+<header>
+  <div class="brand">OpenRole <span>Global</span></div>
+  <div class="tag">REMOTE WORK, MADE CLEARER</div>
+</header>
+
 <main>
 <section class="hero">
- <div class="eyebrow">Your next opportunity starts here</div>
- <h1>Find remote work that fits your world.</h1>
- <p>Search opportunities, review location requirements, and keep your applications organized in one simple place.</p>
- <div class="searchrow">
-  <input id="search" placeholder="Job title, company, or keyword" aria-label="Search jobs">
-  <select id="eligibility" aria-label="Location eligibility"><option value="all">All eligibility</option><option value="worldwide">Worldwide</option><option value="regional">Selected countries</option></select>
-  <button id="searchBtn">Search jobs</button>
- </div>
- <div class="notice"><strong>Job-check notice:</strong> These listings were checked on 27 October 2026 against the job pages linked below. Hiring status can change, so confirm the details on the employer’s application page before applying. OpenRole Global is an independent job board.</div>
+  <div class="eyebrow">Your next opportunity starts here</div>
+  <h1>Find remote work that fits your world.</h1>
+  <p>Search opportunities, review location requirements, and keep your applications organized in one simple place.</p>
+
+  <div class="searchrow">
+    <input id="search" placeholder="Job title, company, or keyword" aria-label="Search jobs">
+    <select id="eligibility" aria-label="Location eligibility">
+      <option value="all">All eligibility</option>
+      <option value="worldwide">Worldwide (needs verification)</option>
+      <option value="regional">Other / not confirmed</option>
+    </select>
+    <button id="searchBtn">Search jobs</button>
+  </div>
+
+  <div class="notice">
+    <strong>Job-check notice:</strong>
+    These listings are collected automatically and are pending review.
+    Please confirm job availability, employer details, and location eligibility
+    on the employer's application page before applying.
+    OpenRole Global is an independent job board.
+  </div>
 </section>
+
 <section class="metrics">
- <div class="metric"><strong id="jobMetric">2</strong><span>Listings checked</span></div>
- <div class="metric"><strong id="savedMetric">0</strong><span>Jobs saved on this device</span></div>
- <div class="metric"><strong id="trackedMetric">0</strong><span>Applications tracked</span></div>
+  <div class="metric"><strong id="jobMetric">0</strong><span>Jobs collected</span></div>
+  <div class="metric"><strong id="savedMetric">0</strong><span>Jobs saved on this device</span></div>
+  <div class="metric"><strong id="trackedMetric">0</strong><span>Applications tracked</span></div>
 </section>
+
 <div class="layout">
- <section class="panel">
-  <div class="panelhead"><h2>Explore opportunities</h2><span class="count" id="resultCount">4 results</span></div>
-  <div id="jobs"></div>
- </section>
- <aside class="panel">
-  <div class="panelhead"><h2>My job tracker</h2><button class="secondary small" id="clearTracker">Clear</button></div>
-  <p style="font-size:12px;color:var(--muted);margin-top:-5px">Saved jobs and status changes stay in this browser on this device.</p>
-  <div id="tracker"><div class="empty">Save a job to start tracking your applications.</div></div>
-  <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
-  <h2 style="margin-bottom:12px">Get job-search tips</h2>
-  <form id="tipsForm" class="sideform">
-   <label>Your email (demo only)<input id="email" type="email" placeholder="you@example.com" required></label>
-   <button type="submit">Join the interest list</button>
-   <p id="formMessage" style="font-size:12px;color:var(--muted);margin:0">Demo form only: it does not send or store your email.</p>
-  </form>
- </aside>
+  <section class="panel">
+    <div class="panelhead">
+      <h2>Explore opportunities</h2>
+      <span class="count" id="resultCount">Loading jobs...</span>
+    </div>
+    <div id="jobs"><div class="empty">Loading job listings...</div></div>
+  </section>
+
+  <aside class="panel">
+    <div class="panelhead">
+      <h2>My job tracker</h2>
+      <button class="secondary small" id="clearTracker">Clear</button>
+    </div>
+
+    <p style="font-size:12px;color:var(--muted);margin-top:-5px">
+      Saved jobs and status changes stay in this browser on this device.
+    </p>
+
+    <div id="tracker">
+      <div class="empty">Save a job to start tracking your applications.</div>
+    </div>
+
+    <hr style="border:0;border-top:1px solid var(--line);margin:18px 0">
+
+    <h2 style="margin-bottom:12px">Get job-search tips</h2>
+    <form id="tipsForm" class="sideform">
+      <label>Your email (demo only)
+        <input id="email" type="email" placeholder="you@example.com" required>
+      </label>
+      <button type="submit">Join the interest list</button>
+      <p id="formMessage" style="font-size:12px;color:var(--muted);margin:0">
+        Demo form only: it does not send or store your email.
+      </p>
+    </form>
+  </aside>
 </div>
 </main>
-<footer>OpenRole Global is an independent job board and is not affiliated with listed employers. Listings were checked on 27 October 2026, but may close or change. Always confirm location eligibility and terms on the employer’s application page. Never pay to apply for a job.</footer>
-<script>
 
+<footer>
+  OpenRole Global is an independent job board and is not affiliated with listed employers.
+  Listings are collected automatically and may be outdated or inaccurate.
+  Confirm job availability, employer details, location eligibility, and terms on the
+  employer's application page. Never pay to apply for a job.
+</footer>
+
+<script>
 let sampleJobs = [];
 
 async function loadJobs() {
   try {
-    const response = await fetch("./jobs.json", {
-      cache: "no-store"
-    });
+    const response = await fetch("./jobs.json", { cache: "no-store" });
 
     if (!response.ok) {
       throw new Error("Could not load jobs.json");
@@ -81,76 +164,235 @@ async function loadJobs() {
 
     const data = await response.json();
 
-    sampleJobs = data.map(job => ({
-      id: job.job_id,
-      title: job.job_title || "Untitled job",
-      company: job.company || "Employer not listed",
-      category: job.category || "Remote Work",
-      location: job.eligible_countries || "Eligibility not confirmed",
-      eligibility: /worldwide|anywhere|global/i.test(
-        job.eligible_countries || ""
-      ) ? "worldwide" : "regional",
-      salary: job.salary || "Not disclosed",
-      type: job.job_type || "Not specified",
-      description:
-        "Status: " + (job.status || "Pending Review") +
-        ". Confirm the employer, location eligibility, and application link before applying.",
-      url: job.application_url || "#",
-      status: job.status || "Pending Review"
-    })).filter(job => job.id && job.url && job.url !== "#");
+    sampleJobs = data.map(job => {
+      const countries = job.eligible_countries || "";
+      const verifiedWorldwide = false;
 
-    
+      return {
+        id: String(job.job_id || ""),
+        title: job.job_title || "Untitled job",
+        company: job.company || "Employer not listed",
+        category: job.category || "Remote Work",
+        location: countries || "Eligibility not confirmed",
+        eligibility: verifiedWorldwide ? "worldwide" : "regional",
+        salary: job.salary || "Not disclosed",
+        type: job.job_type || "Not specified",
+        description:
+          "Status: Pending Review. Confirm the employer, job availability, " +
+          "location eligibility, and application link before applying.",
+        url: job.application_url || "",
+        status: "Pending Review"
+      };
+    }).filter(job =>
+      job.id &&
+      job.url &&
+      /^https?:\/\//i.test(job.url)
+    );
 
     renderJobs();
     renderTracker();
     renderMetrics();
-
-
   } catch (error) {
     console.error(error);
-    document.getElementById("jobs").innerHTML =
-      '<div class="empty">Jobs could not be loaded. Please try again later.</div>';
-    document.getElementById("resultCount").textContent =
-      "Jobs unavailable";
+    $("jobs").innerHTML =
+      '<div class="empty">Jobs could not be loaded. Please check that jobs.json exists and try again.</div>';
+    $("resultCount").textContent = "Jobs unavailable";
+    $("jobMetric").textContent = "0";
   }
 }
 
 const $ = id => document.getElementById(id);
-const load = () => {try{return JSON.parse(localStorage.getItem("openrole_tracker_v1")||"[]")}catch(e){return []}};
-let tracker = load();
-function persist(){localStorage.setItem("openrole_tracker_v1",JSON.stringify(tracker));renderJobs();renderTracker();renderMetrics()}
-function filteredJobs(){
- const q=$("search").value.trim().toLowerCase(), elig=$("eligibility").value;
- return sampleJobs.filter(j=>(elig==="all"||j.eligibility===elig)&&(!q||[j.title,j.company,j.category,j.location].join(" ").toLowerCase().includes(q)));
+
+function loadTracker() {
+  try {
+    return JSON.parse(localStorage.getItem("openrole_tracker_v1") || "[]");
+  } catch (error) {
+    return [];
+  }
 }
-function renderJobs(){
- const list=filteredJobs();$("resultCount").textContent=`${list.length} result${list.length===1?"":"s"}`;$("jobMetric").textContent=sampleJobs.length;
- $("jobs").innerHTML=list.length?list.map(j=>{
- const saved=tracker.some(t=>t.id===j.id);
- return `<article class="job"><div class="jobtop"><div><h3>${j.title}</h3><div class="company">${j.company}</div></div><span class="pill green">Employer listing checked</span></div>
- <div><span class="pill">${j.category}</span><span class="pill">${j.type}</span><span class="pill">Country-restricted remote</span></div>
- <div class="details"><span>⌖ ${j.location}</span><span>Salary: ${j.salary}</span></div><p style="font-size:12px;color:var(--muted)">${j.description}</p>
- <div class="jobactions"><button class="small" onclick="saveJob('${j.id}')">${saved?"Saved ✓":"Save job"}</button><button class="secondary small" onclick="viewDetails('${j.id}')">Details</button><a class="applylink" href="${j.url}" target="_blank" rel="noopener noreferrer">Apply on employer page ↗</a></div></article>`;
- }).join(""):'<div class="empty">No matching jobs. Try another keyword or filter.</div>';
+
+let tracker = loadTracker();
+
+function persist() {
+  localStorage.setItem("openrole_tracker_v1", JSON.stringify(tracker));
+  renderJobs();
+  renderTracker();
+  renderMetrics();
 }
-function saveJob(id){const j=sampleJobs.find(x=>x.id===id);if(!j)return;if(tracker.some(t=>t.id===id)){tracker=tracker.filter(t=>t.id!==id)}else{tracker.push({...j,status:"Interested"})}persist()}
-function viewDetails(id){const j=sampleJobs.find(x=>x.id===id);if(j)alert(`${j.title}\n${j.company}\n\n${j.description}\n\nEmployer application page: ${j.url}\n\nChecked: 27 October 2026. Recheck availability and location eligibility before applying.`)}
-function renderTracker(){
- $("tracker").innerHTML=tracker.length?tracker.map(t=>`<div class="trackeritem"><div class="trackerrow"><strong>${t.title}</strong><button class="secondary small" onclick="removeJob('${t.id}')">Remove</button></div><small>${t.company}</small><div style="margin-top:8px"><select aria-label="Application status for ${t.title}" onchange="changeStatus('${t.id}',this.value)">${["Interested","Applied","Interview","Rejected","Offer"].map(s=>`<option ${t.status===s?"selected":""}>${s}</option>`).join("")}</select></div></div>`).join(""):'<div class="empty">Save a job to start tracking your applications.</div>';
+
+function filteredJobs() {
+  const q = $("search").value.trim().toLowerCase();
+  const eligibility = $("eligibility").value;
+
+  return sampleJobs.filter(job =>
+    (eligibility === "all" || job.eligibility === eligibility) &&
+    (!q || [job.title, job.company, job.category, job.location]
+      .join(" ").toLowerCase().includes(q))
+  );
 }
-function changeStatus(id,status){const item=tracker.find(t=>t.id===id);if(item){item.status=status;persist()}}
-function removeJob(id){tracker=tracker.filter(t=>t.id!==id);persist()}
-function renderMetrics(){$("savedMetric").textContent=tracker.length;$("trackedMetric").textContent=tracker.filter(t=>t.status!=="Interested").length}
-$("searchBtn").addEventListener("click",renderJobs);$("search").addEventListener("input",renderJobs);$("eligibility").addEventListener("change",renderJobs);
-$("clearTracker").addEventListener("click",()=>{if(confirm("Remove all saved jobs from this browser?")){tracker=[];persist()}});
-$("tipsForm").addEventListener("submit",e=>{e.preventDefault();$("formMessage").textContent="Thanks for testing! This demo does not collect or send your email. Connect a secure email service before launching.";});
+
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
+}
+
+function renderJobs() {
+  const list = filteredJobs();
+  $("resultCount").textContent =
+    `${list.length} result${list.length === 1 ? "" : "s"}`;
+  $("jobMetric").textContent = sampleJobs.length;
+
+  $("jobs").innerHTML = list.length ? list.map(job => {
+    const saved = tracker.some(item => item.id === job.id);
+    const id = escapeHTML(job.id);
+
+    return `
+      <article class="job">
+        <div class="jobtop">
+          <div>
+            <h3>${escapeHTML(job.title)}</h3>
+            <div class="company">${escapeHTML(job.company)}</div>
+          </div>
+          <span class="pill gold">Pending Review</span>
+        </div>
+
+        <div>
+          <span class="pill">${escapeHTML(job.category)}</span>
+          <span class="pill">${escapeHTML(job.type)}</span>
+          <span class="pill">Eligibility needs review</span>
+        </div>
+
+        <div class="details">
+          <span>Location: ${escapeHTML(job.location)}</span>
+          <span>Salary: ${escapeHTML(job.salary)}</span>
+        </div>
+
+        <p style="font-size:12px;color:var(--muted)">
+          ${escapeHTML(job.description)}
+        </p>
+
+        <div class="jobactions">
+          <button class="small" onclick="saveJob('${id}')">
+            ${saved ? "Saved ✓" : "Save job"}
+          </button>
+          <button class="secondary small" onclick="viewDetails('${id}')">
+            Details
+          </button>
+          <a class="applylink" href="${escapeHTML(job.url)}"
+             target="_blank" rel="noopener noreferrer">
+            Open application page ↗
+          </a>
+        </div>
+      </article>`;
+  }).join("") :
+    '<div class="empty">No matching jobs. Try another keyword or filter.</div>';
+}
+
+function saveJob(id) {
+  const job = sampleJobs.find(item => item.id === id);
+  if (!job) return;
+
+  if (tracker.some(item => item.id === id)) {
+    tracker = tracker.filter(item => item.id !== id);
+  } else {
+    tracker.push({...job, status: "Interested"});
+  }
+
+  persist();
+}
+
+function viewDetails(id) {
+  const job = sampleJobs.find(item => item.id === id);
+  if (!job) return;
+
+  alert(
+    `${job.title}\n${job.company}\n\n` +
+    `Status: Pending Review\n` +
+    `Location: ${job.location}\n` +
+    `Salary: ${job.salary}\n\n` +
+    `Confirm job availability and eligibility on the employer's application page:\n${job.url}`
+  );
+}
+
+function renderTracker() {
+  $("tracker").innerHTML = tracker.length ? tracker.map(item => {
+    const id = escapeHTML(item.id);
+    const title = escapeHTML(item.title);
+    const company = escapeHTML(item.company);
+    const statuses = ["Interested", "Applied", "Interview", "Rejected", "Offer"];
+
+    return `
+      <div class="trackeritem">
+        <div class="trackerrow">
+          <strong>${title}</strong>
+          <button class="secondary small" onclick="removeJob('${id}')">Remove</button>
+        </div>
+        <small>${company}</small>
+        <div style="margin-top:8px">
+          <select aria-label="Application status for ${title}"
+                  onchange="changeStatus('${id}',this.value)">
+            ${statuses.map(status =>
+              `<option ${item.status === status ? "selected" : ""}>${status}</option>`
+            ).join("")}
+          </select>
+        </div>
+      </div>`;
+  }).join("") :
+    '<div class="empty">Save a job to start tracking your applications.</div>';
+}
+
+function changeStatus(id, status) {
+  const item = tracker.find(job => job.id === id);
+  if (item) {
+    item.status = status;
+    persist();
+  }
+}
+
+function removeJob(id) {
+  tracker = tracker.filter(item => item.id !== id);
+  persist();
+}
+
+function renderMetrics() {
+  $("savedMetric").textContent = tracker.length;
+  $("trackedMetric").textContent =
+    tracker.filter(item => item.status !== "Interested").length;
+}
+
+$("searchBtn").addEventListener("click", renderJobs);
+$("search").addEventListener("input", renderJobs);
+$("eligibility").addEventListener("change", renderJobs);
+
+$("clearTracker").addEventListener("click", () => {
+  if (confirm("Remove all saved jobs from this browser?")) {
+    tracker = [];
+    persist();
+  }
+});
+
+$("tipsForm").addEventListener("submit", event => {
+  event.preventDefault();
+  $("formMessage").textContent =
+    "Thanks for testing! This demo does not collect or send your email. Connect an email service before launching.";
+});
+
 loadJobs();
 renderTracker();
 renderMetrics();
 </script>
+
 <script>
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js").catch(console.error));
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(error => console.error("Service worker registration failed:", error));
+  });
 }
 </script>
 </body>
